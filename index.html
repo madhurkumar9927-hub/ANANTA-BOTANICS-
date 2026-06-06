@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANANTA Botanics | Ancient Wisdom, Modern Wellness</title>
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap)" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D5016;
+            --primary-light: #4A7C23;
+            --secondary: #8B6914;
+            --accent: #D4A853;
+            --cream: #FDF8F0;
+            --cream-dark: #F5EBD9;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            padding: 0.8rem 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: var(--secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-light);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='[w3.org](http://www.w3.org/2000/svg)'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232D5016' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 5% 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Jost', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+            opacity: 0.3;
+        }
+
+        .hero-circle-1 {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero-circle-2 {
+            width: 500px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.1; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .hero-main-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(45deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 200px 200px 100px 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-plant {
+            font-size: 200px;
+            opacity: 0.9;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .floating-card-1 {
+            top: 20%;
+            left: -20%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card-2 {
+            bottom: 25%;
+            right: -15%;
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--cream);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .floating-text h4 {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .floating-text p {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 7rem 5%;
+            background: var(--cream);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            height: 500px;
+        }
+
+        .about-img {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .about-img-1 {
+            width: 280px;
+            height: 350px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #a8d5a2 0%, #7cb87c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .about-img-2 {
+            width: 250px;
+            height: 300px;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(45, 80, 22, 0.3);
+        }
+
+        .experience-badge .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content h2 span {
+            color: var(--secondary);
+        }
+
+        .about-content > p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--cream-dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 7rem 5%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .product-image {
+            width: 150px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 75px 75px 30px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .product-category {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .product-btn:hover {
+            background: var(--primary-light);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 7rem 5%;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='[w3.org](http://www.w3.org/2000/svg)'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefits .section-header {
+            color: var(--white);
+        }
+
+        .benefits .section-header h2 {
+            color: var(--white);
+        }
+
+        .benefits .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .benefits .section-label {
+            color: var(--accent);
+        }
+
+        .benefits .section-label::before {
+            background: var(--accent);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 7rem 5%;
+            background: var(--cream);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Ingredients Section */
+        .ingredients {
+            padding: 7rem 5%;
+            background: var(--white);
+        }
+
+        .ingredients-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+        }
+
+        .ingredient-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--cream);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .ingredient-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .ingredient-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .ingredient-item h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .ingredient-item p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--cream-dark) 0%, var(--cream) 100%);
+        }
+
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 50px;
+            font-family: 'Jost', sans-serif;
+            font-size: 1rem;
+            background: var(--white);
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Jost', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-certifications {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .certification {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                margin: 0 auto 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-images {
+                height: 400px;
+                margin-bottom: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ingredients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2,
+            .about-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ingredients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 50 50" fill="none" xmlns="[w3.org](http://www.w3.org/2000/svg)">
+                <circle cx="25" cy="25" r="23" stroke="#2D5016" stroke-width="2" fill="none"/>
+                <path d="M25 8 C25 8 20 18 20 25 C20 32 22 38 25 42 C28 38 30 32 30 25 C30 18 25 8 25 8Z" fill="#2D5016"/>
+                <path d="M25 15 C22 18 18 22 16 25 C18 28 22 32 25 35" stroke="#4A7C23" stroke-width="1.5" fill="none"/>
+                <path d="M25 15 C28 18 32 22 34 25 C32 28 28 32 25 35" stroke="#4A7C23" stroke-width="1.5" fill="none"/>
+            </svg>
+            <div>
+                <span class="logo-text">ANANTA</span>
+                <div class="logo-tagline">Botanics</div>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="mobile-menu" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/></svg>
+                    Trusted by 50,000+ Wellness Seekers
+                </div>
+                <h1>Ancient Wisdom for <span>Modern Wellness</span></h1>
+                <p>Discover the transformative power of Ayurveda with ANANTA Botanics. Our scientifically-formulated herbal remedies blend 5,000 years of wisdom with modern research.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">
+                        Explore Products
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#about" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-circle hero-circle-1"></div>
+                    <div class="hero-circle hero-circle-2"></div>
+                    <div class="hero-main-image">
+                        <span class="hero-plant">🌿</span>
+                    </div>
+                    <div class="floating-card floating-card-1">
+                        <div class="floating-icon">🍃</div>
+                        <div class="floating-text">
+                            <h4>100% Natural</h4>
+                            <p>Pure Ingredients</p>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-2">
+                        <div class="floating-icon">✓</div>
+                        <div class="floating-text">
+                            <h4>Lab Tested</h4>
+                            <p>Quality Assured</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Herbal Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-images">
+                <div class="about-img about-img-1">🌱</div>
+                <div class="about-img about-img-2">⚗️</div>
+                <div class="experience-badge">
+                    <div class="number">25+</div>
+                    <div class="text">Years of Excellence</div>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="section-label">Our Story</div>
+                <h2>Rooted in Tradition, <span>Driven by Science</span></h2>
+                <p>ANANTA—meaning "infinite" in Sanskrit—reflects our belief in the boundless potential of nature. Founded with a vision to make authentic Ayurvedic wellness accessible to all, we combine time-tested formulations with rigorous scientific validation.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="feature-icon">🌿</div>
+                        <div class="feature-text">
+                            <h4>Ethically Sourced</h4>
+                            <p>Herbs from sustainable farms</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon">🔬</div>
+                        <div class="feature-text">
+                            <h4>Lab Tested</h4>
+                            <p>Third-party verified purity</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon">📜</div>
+                        <div class="feature-text">
+                            <h4>Ancient Recipes</h4>
+                            <p>Traditional formulations</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon">♻️</div>
+                        <div class="feature-text">
+                            <h4>Eco-Friendly</h4>
+                            <p>Sustainable packaging</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary">Learn More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <div class="section-label">Our Products</div>
+            <h2>Nature's Best, Bottled for You</h2>
+            <p>Each product is crafted with care, combining premium herbs with traditional wisdom for optimal wellness.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-image">🧴</div>
+                <div class="product-category">Immunity</div>
+                <h3>Chyawanprash Gold</h3>
+                <p>Immunity-boosting superfood with 40+ herbs</p>
+                <div class="product-price">₹599</div>
+                <button class="product-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">💊</div>
+                <div class="product-category">Stress Relief</div>
+                <h3>Ashwagandha Capsules</h3>
+                <p>Premium KSM-66 for stress & vitality</p>
+                <div class="product-price">₹449</div>
+                <button class="product-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="product-badge">New</span>
+                <div class="product-image">🍯</div>
+                <div class="product-category">Digestion</div>
+                <h3>Triphala Churna</h3>
+                <p>Traditional digestive wellness blend</p>
+                <div class="product-price">₹299</div>
+                <button class="product-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🫖</div>
+                <div class="product-category">Hair Care</div>
+                <h3>Bhringraj Hair Oil</h3>
+                <p>Nourishing oil for thick, lustrous hair</p>
+                <div class="product-price">₹399</div>
+                <button class="product-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="benefits-pattern"></div>
+        <div class="benefits-container">
+            <div class="section-header">
+                <div class="section-label">Why Choose Us</div>
+                <h2>The ANANTA Difference</h2>
+                <p>We go beyond conventional standards to bring you the purest, most effective Ayurvedic formulations.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌱</div>
+                    <h3>100% Natural</h3>
+                    <p>No artificial preservatives, colors, or additives. Just pure, potent herbs as nature intended.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔬</div>
+                    <h3>Scientifically Validated</h3>
+                    <p>Each formula is backed by research and tested for purity, potency, and safety.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👨‍⚕️</div>
+                    <h3>Expert Formulated</h3>
+                    <p>Developed by Ayurvedic doctors with decades of clinical experience.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Sustainably Sourced</h3>
+                    <p>Ethically harvested herbs from organic farms across India.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✓</div>
+                    <h3>GMP Certified</h3>
+                    <p>Manufactured in state-of-the-art facilities with strict quality controls.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💚</div>
+                    <h3>Holistic Approach</h3>
+                    <p>Treating the root cause, not just symptoms, for lasting wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <div class="section-label">Testimonials</div>
+            <h2>Loved by Thousands</h2>
+            <p>Real stories from real people who transformed their health with ANANTA Botanics.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"After trying countless supplements, ANANTA's Ashwagandha finally helped me manage my stress. I sleep better and feel more energized throughout the day."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PS</div>
+                    <div class="author-info">
+                        <h4>Priya Sharma</h4>
+                        <p>Verified Buyer • Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The Chyawanprash Gold is a game-changer for my family's immunity. We haven't had a cold in months! The quality is noticeably superior to other brands."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RK</div>
+                    <div class="author-info">
+                        <h4>Rajesh Kumar</h4>
+                        <p>Verified Buyer • Delhi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I've been using Bhringraj oil for 3 months and my hair fall has reduced significantly. It's now thicker and healthier than ever. Highly recommend!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AM</div>
+                    <div class="author-info">
+                        <h4>Anita Menon</h4>
+                        <p>Verified Buyer • Bangalore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients">
+        <div class="ingredients-container">
+            <div class="section-header">
+                <div class="section-label">Our Ingredients</div>
+                <h2>Powered by Nature's Finest</h2>
+                <p>We source only the highest quality herbs, carefully selected for their potency and purity.</p>
+            </div>
+            <div class="ingredients-grid">
+                <div class="ingredient-item">
+                    <div class="ingredient-icon">🌿</div>
+                    <h4>Ashwagandha</h4>
+                    <p>Stress Relief</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="ingredient-icon">🍃</div>
+                    <h4>Tulsi</h4>
+                    <p>Immunity</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="ingredient-icon">🌾</div>
+                    <h4>Turmeric</h4>
+                    <p>Anti-inflammatory</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="ingredient-icon">🫚</div>
+                    <h4>Ginger</h4>
+                    <p>Digestion</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="ingredient-icon">🌸</div>
+                    <h4>Brahmi</h4>
+                    <p>Brain Health</p>
+                </div>
+                <div class="ingredient-item">
+                    <div class="ingredient-icon">🍂</div>
+                    <h4>Neem</h4>
+                    <p>Skin Care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="contact">
+        <div class="newsletter-container">
+            <h2>Join the Wellness Journey</h2>
+            <p>Subscribe for exclusive offers, Ayurvedic wellness tips, and new product launches.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">ANANTA Botanics</span>
+                    <p>Bridging ancient Ayurvedic wisdom with modern wellness. Our mission is to help you achieve balance, vitality, and holistic health through nature's purest gifts.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Products</a></li>
+                        <li><a href="#">Ingredients</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Immunity</a></li>
+                        <li><a href="#">Stress Relief</a></li>
+                        <li><a href="#">Digestion</a></li>
+                        <li><a href="#">Hair Care</a></li>
+                        <li><a href="#">Skin Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 ANANTA Botanics. All rights reserved.</p>
+                <div class="footer-certifications">
+                    <div class="certification">✓ GMP Certified</div>
+                    <div class="certification">✓ ISO 9001</div>
+                    <div class="certification">✓ AYUSH Approved</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert('Thank you for subscribing! You\'ll receive wellness tips at ' + email);
+            this.reset();
+        });
+
+        // Add to cart buttons
+        document.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = 'Added ✓';
+                this.style.background = '#4A7C23';
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                    this.style.background = '';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
